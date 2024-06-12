@@ -1,0 +1,174 @@
+/* faz aplicação global de CSS */
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+
+/* Varáveis que podem ser usadas para todo o documento */
+/* Ativo somento no Dark Mode */
+
+:root {
+    --bg-url: url(../img/ca9bd9b1a3af650d24995a1e7959426a.png);
+    --text-color: rgb(170, 231, 223);
+    --stroke-color: rgba(32, 240, 213, 0.5);
+    --surface-color: rgba(32, 240, 213, 0.1);
+    --surface-color-hover: rgba(32, 240, 213, 0.2);
+    --switch-bg-url: url(../img/MoonStars.svg);
+    --highlight-color: rgba(32, 240, 213, 0.3);
+
+}
+
+body {
+    background: var(--bg-url) no-repeat top center / cover;
+    height: 100vh;
+    color: var(--text-color);
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.light {
+    --bg-url: url(../img/e8693a47e5de43bf2d4f4f28c5ea0827.png);
+    --text-color: #006495;
+    --stroke-color: rgba(16, 66, 176, 0.5);
+    --surface-color: rgba(16, 66, 176, 0.1);
+    --surface-color-hover: rgba(16, 66, 176, 0.2);
+    --switch-bg-url: url(../img/handle.svg);
+    --highlight-color: rgba(16, 66, 176, 0.3);
+}
+
+#container{
+    width: 100%;
+    max-width: 588px;
+    margin: 56px auto 0px;
+    padding: 0px 24px;
+}
+
+#perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#perfil img{
+   max-width: 112px;
+   height: 112px;
+   border-radius: 50%;
+   border: 2px solid var(--stroke-color);
+   object-fit: cover;
+}
+
+#perfil p{
+    margin-top: 8px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+/* botao */
+#botao{
+    position: relative;
+    width: 64px;
+    margin: 4px auto
+}
+
+#botao button{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 0;
+    background: #ffffff var(--switch-bg-url) no-repeat center;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    /* ele desce 50% */
+    transform: translateY(-50%);
+    animation: slide-out 0.2s;
+}
+
+.light #botao button{
+    animation: slide-in 0.2s forwards; duration timing-function delay iteration-count direction fill-mode;
+}
+
+
+#botao button:hover{
+    outline: 8px solid var(--surface-color-hover);
+    transition: all 0.2s;
+}
+
+#botao span{
+    background: var(--surface-color);
+    display: block;
+    width: 54px;
+    height: 24px;
+    border: 1px solid var(--stroke-color);
+    border-radius: 24px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+#link ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+
+}
+
+#link ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    background: var(--surface-color);
+    text-decoration: var(--surface-color);
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+#link ul li a:hover {
+    background: var(--surface-color-hover);
+    border: 1px solid var(--text-color);
+    transition: all 0.5s;
+}
+
+#redeSocial{
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    gap: 16;
+    font-size: 16px;
+}
+
+#redeSocial a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+#footer{
+    text-align: center;
+    font-size: 14px;
+    padding: 24px;
+}
+
+#footer a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* animação do botão */
+@keyframes slide-out {
+    from{left: 50%}
+    to {left: 0%}
+}
+
+@keyframes slide-in {
+    from{left: 0%}
+    to {left: 50%}
+}
